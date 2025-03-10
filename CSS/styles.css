@@ -1,5 +1,17 @@
 /* Base Styles */
-:root {
+  :root {
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --secondary: #9ca3af;
+    --text-primary: #f9fafb;
+    --text-secondary: #e5e7eb;
+    --background: #111827;
+    --background-alt: #1f2937;
+    --border: #374151;
+    --shadow: rgba(0, 0, 0, 0.3);
+  }  
+  
+  .dark {
     --primary: #3b82f6;
     --primary-hover: #2563eb;
     --secondary: #6b7280;
@@ -11,18 +23,6 @@
     --shadow: rgba(0, 0, 0, 0.1);
     --radius: 0.5rem;
     --transition: all 0.3s ease;
-  }
-  
-  .dark {
-    --primary: #3b82f6;
-    --primary-hover: #60a5fa;
-    --secondary: #9ca3af;
-    --text-primary: #f9fafb;
-    --text-secondary: #e5e7eb;
-    --background: #111827;
-    --background-alt: #1f2937;
-    --border: #374151;
-    --shadow: rgba(0, 0, 0, 0.3);
   }
   
   * {
