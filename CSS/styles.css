@@ -11,7 +11,7 @@
   --shadow: rgba(0, 0, 0, 0.5);
 }  
 
-.dark {
+.oscuro {
   --primary: #6d28d9; 
   --primary-hover: #7c3aed;
   --secondary: #6b7280;
@@ -154,7 +154,7 @@ img {
 }
 
 /* Estilos adicionales para la navegación */
-.nav-list {
+.lista-nav {
   display: flex;
   gap: 1.5rem;
   position: relative;
@@ -189,8 +189,8 @@ img {
   color: var(--primary);
 }
 
-.theme-toggle,
-.menu-toggle {
+.cambio-tema,
+.cambio-menu {
   background: none;
   border: none;
   color: var(--text-secondary);
@@ -199,32 +199,32 @@ img {
   transition: var(--transition);
 }
 
-.theme-toggle:hover,
-.menu-toggle:hover {
+.cambio-tema:hover,
+.cambio-menu:hover {
   color: var(--primary);
 }
 
-.menu-toggle {
+.cambio-menu {
   display: none;
 }
 
 /* Hero Section */
-.hero {
+.perfil {
   padding: 120px 0 80px;
   background-color: var(--background);
 }
 
-.hero-content {
+.contenido-perfil {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.hero-text {
+.testo-perfil {
   flex: 1;
 }
 
-.hero-title {
+.titulo-perfil {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.2;
@@ -235,23 +235,23 @@ img {
   color: var(--primary);
 }
 
-.hero-subtitle {
+.perfil-subtitle {
   font-size: 1.5rem;
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
-.hero-description {
+.perfil-description {
   margin-bottom: 2rem;
   color: var(--text-secondary);
 }
 
-.hero-buttons {
+.perfil-buttons {
   display: flex;
   gap: 1rem;
 }
 
-.hero-image {
+.perfil-image {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -623,7 +623,7 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
 }
 
 @media (max-width: 768px) {
-  .nav-list {
+  .lista-nav {
     display: none;
     position: absolute;
     top: 70px;
@@ -636,11 +636,11 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
     gap: 0;
   }
 
-  .nav-list.active {
+  .lista-nav.active {
     display: flex;
   }
 
-  .nav-list li {
+  .lista-nav li {
     width: 100%;
   }
 
@@ -697,5 +697,9 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
 
   .skills-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  #front {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
   }
 }

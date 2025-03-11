@@ -1,16 +1,16 @@
 // DOM Elements
-const themeToggle = document.getElementById("theme-toggle")
-const menuToggle = document.getElementById("menu-toggle")
-const navList = document.querySelector(".nav-list")
+const themeToggle = document.getElementById("cambio-tema")
+const menuToggle = document.getElementById("cambio-menu")
+const navList = document.querySelector(".lista-nav")
 const contactForm = document.getElementById("contact-form")
 
 // Theme Toggle
 themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark")
+  document.body.classList.toggle("oscuro")
 
   // Update icon
   const icon = themeToggle.querySelector("i")
-  if (document.body.classList.contains("dark")) {
+  if (document.body.classList.contains("oscuro")) {
     icon.classList.remove("fa-moon")
     icon.classList.add("fa-sun")
   } else {
@@ -19,18 +19,18 @@ themeToggle.addEventListener("click", () => {
   }
 
   // Save preference to localStorage
-  const theme = document.body.classList.contains("dark") ? "dark" : "light"
+  const theme = document.body.classList.contains("oscuro") ? "oscuro" : "Claro"
   localStorage.setItem("theme", theme)
 })
 
 // Check for saved theme preference
 if (!localStorage.getItem("theme")) {
-    localStorage.setItem("theme", "dark")
+    localStorage.setItem("theme", "oscuro")
 }
 
 const savedTheme = localStorage.getItem("theme")
-if (savedTheme === "dark") {
-  document.body.classList.add("dark")
+if (savedTheme === "oscuro") {
+  document.body.classList.add("oscuro")
   const icon = themeToggle.querySelector("i")
   icon.classList.remove("fa-moon")
   icon.classList.add("fa-sun")
