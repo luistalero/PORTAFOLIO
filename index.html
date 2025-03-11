@@ -33,32 +33,33 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="inicio" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">Hola, soy <span class="highlight">Luis Talero</span></h1>
-                        <h2 class="hero-subtitle">Desarrollador Full Stack Junior 🖥️</h2>
-                        <p class="hero-description">
-                            👨‍💻 Estudiante de programación y apasionado por el desarrollo de software. Siempre aprendiendo nuevas tecnologías.
+<section id="inicio" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <!-- Cambiar el orden y disposición de los elementos -->
+            <div class="hero-text">
+                <h1 class="hero-title"><span class="highlight">Luis Talero</span></h1>
+                <h2 class="hero-subtitle">Desarrollador Full Stack Junior 🖥️</h2>
+                <div class="hero-image">
+                    <img src="img/4.jpg" alt="Foto de perfil" class="profile-image">
+                </div>
+                <p class="hero-description">
+                    👨‍💻 Estudiante de programación y apasionado por el desarrollo de software. Siempre aprendiendo nuevas tecnologías.
                             Con experiencia en desarrollo frontend, backend y bases de datos.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="#contacto" class="btn btn-primary">Contáctame</a>
-                            <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <img src="img/4.jpg" alt="Foto de perfil" class="profile-image">
-                    </div>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary">Contáctame</a>
+                    <a href="CV/Luis Alberto Talero Martinez.pdf" download="Cv_LuisTalero" class="btn btn-secondary">Descargar CV</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Experience Section -->
         <section id="experiencia" class="experience">
             <div class="container">
-                <h2 class="section-title">Experiencia Estudiantil</h2>
+                <h2 class="section-title">Experiencia</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">2024 - 2025</div>
@@ -101,7 +102,7 @@
                 <div class="skills-container">
                     <div class="skill-category">
                         <h3 class="category-title">Frontend</h3>
-                        <div class="skills-grid">
+                        <div id="front" class="">
                             <div class="skill-item">
                                 <div class="skill-icon"><i class="fab fa-html5"></i></div>
                                 <h4 class="skill-name">HTML5</h4>
@@ -207,7 +208,7 @@
                     </div>
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="img/3.png"alt="Proyecto 3">
+                            <img src="img/3.png"alt="Proyecto 3" >
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Base de Datos Gestión de Vuelos</h3>
@@ -256,7 +257,7 @@
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form id="contact-form">
+                        <form id="contact-form" action="https://formsubmit.co/luisalbertotaleromartinez@gmail.com" method="POST" >
                             <div class="form-group">
                                 <label for="name">Nombre</label>
                                 <input type="text" id="name" name="name" required>
@@ -274,6 +275,10 @@
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+
+                            <input type="hidden" name="_next" value="https://portafolio-luis-talero.netlify.app/">
+
+                            <input type="hidden" name="_captcha" value="false">                           
                         </form>
                     </div>
                 </div>

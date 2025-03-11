@@ -24,6 +24,10 @@ themeToggle.addEventListener("click", () => {
 })
 
 // Check for saved theme preference
+if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", "dark")
+}
+
 const savedTheme = localStorage.getItem("theme")
 if (savedTheme === "dark") {
   document.body.classList.add("dark")
@@ -47,7 +51,6 @@ document.querySelectorAll(".nav-link").forEach((link) => {
 // Contact Form Submission
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
-    e.preventDefault()
 
     // Get form data
     const formData = new FormData(contactForm)
@@ -171,17 +174,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add animation styles
   const style = document.createElement("style")
   style.textContent = `
-        .skill-item, .project-card, .timeline-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .skill-item.animate, .project-card.animate, .timeline-item.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    `
+    .skill-item, .project-card, .timeline-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .skill-item.animate, .project-card.animate, .timeline-item.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 25px var(--shadow);
+    }
+  `
   document.head.appendChild(style)
 
   // Initial check for elements in viewport
