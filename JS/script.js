@@ -2,7 +2,7 @@
 const themeToggle = document.getElementById("cambio-tema")
 const menuToggle = document.getElementById("cambio-menu")
 const navList = document.querySelector(".lista-nav")
-const contactForm = document.getElementById("contact-form")
+const contactoForm = document.getElementById("contacto-form")
 
 // Theme Toggle
 themeToggle.addEventListener("click", () => {
@@ -48,12 +48,12 @@ document.querySelectorAll(".nav-link").forEach((link) => {
   })
 })
 
-// Contact Form Submission
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+// contacto Form Submission
+if (contactoForm) {
+  contactoForm.addEventListener("submit", (e) => {
 
     // Get form data
-    const formData = new FormData(contactForm)
+    const formData = new FormData(contactoForm)
     const formValues = Object.fromEntries(formData.entries())
 
     // Simple validation
@@ -74,14 +74,14 @@ if (contactForm) {
       alert("¡Mensaje enviado con éxito! Te responderé lo antes posible.")
 
       // Reset form
-      contactForm.reset()
+      contactoForm.reset()
     } else {
       alert("Por favor, completa todos los campos del formulario.")
     }
   })
 
   // Reset validation styling on input
-  contactForm.querySelectorAll("input, textarea").forEach((input) => {
+  contactoForm.querySelectorAll("input, textarea").forEach((input) => {
     input.addEventListener("input", () => {
       input.style.borderColor = ""
     })

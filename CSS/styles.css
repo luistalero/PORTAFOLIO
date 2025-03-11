@@ -220,7 +220,7 @@ img {
   gap: 2rem;
 }
 
-.testo-perfil {
+.texto-perfil {
   flex: 1;
 }
 
@@ -326,19 +326,19 @@ img {
   color: var(--text-secondary);
 }
 
-/* Skills Section */
-.skills {
+/* habilidad Section */
+.habilidad {
   padding: 80px 0;
   background-color: var(--background);
 }
 
-.skills-container {
+.habilidad-container {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-.skill-category {
+.habilidad-category {
   margin-bottom: 2rem;
 }
 
@@ -348,13 +348,13 @@ img {
   text-align: center;
 }
 
-.skills-grid {
+.habilidades-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 3rem;
 }
 
-.skill-item {
+.habilidad-item {
   background-color: var(--background-alt);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -363,12 +363,12 @@ img {
   box-shadow: 0 4px 6px var(--shadow);
 }
 
-.skill-item:hover {
+.habilidad-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px var(--shadow);
 }
 
-.skill-icon {
+.habilidad-icon {
   font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 1rem;
@@ -380,24 +380,24 @@ img {
   gap: 9rem;
 }
 
-.skill-name {
+.habilidad-name {
   font-size: 1rem;
   font-weight: 600;
 }
 
 /* Projects Section */
-.projects {
+.projectos {
   padding: 80px 0;
   background-color: var(--background-alt);
 }
 
-.projects-grid {
+.projectos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
 }
 
-.project-card {
+.projecto-card {
   background-color: var(--background);
   border-radius: var(--radius);
   overflow: hidden;
@@ -405,42 +405,42 @@ img {
   transition: var(--transition);
 }
 
-.project-card:hover {
+.projecto-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px var(--shadow);
 }
 
-.project-image {
+.projecto-image {
   height: 200px;
   overflow: hidden;
 }
 
-.project-image img {
+.projecto-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: var(--transition);
 }
 
-.project-card:hover .project-image img {
+.projecto-card:hover .projecto-image img {
   transform: scale(1.05);
 }
 
-.project-content {
+.projecto-content {
   padding: 1.5rem;
 }
 
-.project-title {
+.projecto-title {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
 }
 
-.project-description {
+.projecto-description {
   color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
-.project-tags {
+.projecto-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -455,54 +455,54 @@ img {
   font-size: 0.875rem;
 }
 
-.project-links {
+.projecto-links {
   display: flex;
   gap: 1rem;
 }
 
-.project-link {
+.projecto-link {
   color: var(--primary);
   font-weight: 500;
   transition: var(--transition);
 }
 
-.project-link:hover {
+.projecto-link:hover {
   color: var(--primary-hover);
 }
 
 /* Contact Section */
-.contact {
+.contacto {
   padding: 80px 0;
   background-color: var(--background);
 }
 
-.contact-container {
+.contacto-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
 }
 
-.contact-info h3 {
+.contacto-info h3 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
-.contact-info p {
+.contacto-info p {
   color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
-.contact-details {
+.contacto-details {
   margin-bottom: 2rem;
 }
 
-.contact-item {
+.contacto-item {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.contact-item i {
+.contacto-item i {
   font-size: 1.25rem;
   color: var(--primary);
   margin-right: 1rem;
@@ -617,7 +617,7 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
     justify-content: center;
   }
 
-  .contact-container {
+  .contacto-container {
     grid-template-columns: 1fr;
   }
 }
@@ -653,7 +653,7 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
     display: block;
   }
 
-  .projects-grid {
+  .projectos-grid {
     grid-template-columns: 1fr;
   }
 
@@ -678,24 +678,24 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
 }
 
 @media (max-width: 576px) {
-  .section-title {
+  .titulo-seccion {
     font-size: 1.75rem;
   }
 
-  .hero-title {
+  .perfil-title {
     font-size: 2.25rem;
   }
 
-  .hero-subtitle {
+  .perfil-subtitle {
     font-size: 1.25rem;
   }
 
-  .profile-image {
+  .profiel-image {
     width: 250px;
     height: 250px;
   }
 
-  .skills-grid {
+  .habilidades-grid {
     grid-template-columns: 1fr 1fr;
   }
   #front {
