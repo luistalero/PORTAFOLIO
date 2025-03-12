@@ -608,12 +608,12 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-  .hero-content {
+  .contenido-perfil {
     flex-direction: column-reverse;
     text-align: center;
   }
 
-  .hero-buttons {
+  .perfil-buttons {
     justify-content: center;
   }
 
@@ -649,7 +649,7 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
     padding: 1rem 1.5rem;
   }
 
-  .menu-toggle {
+  .cambio-menu {
     display: block;
   }
 

@@ -1,200 +1,132 @@
 // DOM Elements
-const themeToggle = document.getElementById("cambio-tema")
-const menuToggle = document.getElementById("cambio-menu")
-const navList = document.querySelector(".lista-nav")
-const contactoForm = document.getElementById("contacto-form")
+const themeToggle = document.getElementById("cambio-tema");
+const menuToggle = document.getElementById("cambio-menu");
+const navList = document.querySelector(".lista-nav");
+const contactoForm = document.getElementById("contacto-form");
+const navLinks = document.querySelectorAll(".nav-link");
+const nameElement = document.querySelector(".perfil-title span");
+const projectCards = document.querySelectorAll(".project-card");
+const sections = document.querySelectorAll("section");
 
 // Theme Toggle
 themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("oscuro")
+  document.body.classList.toggle("oscuro");
+  
+  const icon = themeToggle.querySelector("i");
+  icon.classList.toggle("fa-moon", !document.body.classList.contains("oscuro"));
+  icon.classList.toggle("fa-sun", document.body.classList.contains("oscuro"));
 
-  // Update icon
-  const icon = themeToggle.querySelector("i")
-  if (document.body.classList.contains("oscuro")) {
-    icon.classList.remove("fa-moon")
-    icon.classList.add("fa-sun")
-  } else {
-    icon.classList.remove("fa-sun")
-    icon.classList.add("fa-moon")
-  }
+  localStorage.setItem("theme", document.body.classList.contains("oscuro") ? "oscuro" : "claro");
+});
 
-  // Save preference to localStorage
-  const theme = document.body.classList.contains("oscuro") ? "oscuro" : "Claro"
-  localStorage.setItem("theme", theme)
-})
-
-// Check for saved theme preference
 if (!localStorage.getItem("theme")) {
-    localStorage.setItem("theme", "oscuro")
+  localStorage.setItem("theme", "oscuro");
 }
 
-const savedTheme = localStorage.getItem("theme")
-if (savedTheme === "oscuro") {
-  document.body.classList.add("oscuro")
-  const icon = themeToggle.querySelector("i")
-  icon.classList.remove("fa-moon")
-  icon.classList.add("fa-sun")
+if (localStorage.getItem("theme") === "oscuro") {
+  document.body.classList.add("oscuro");
+  const icon = themeToggle.querySelector("i");
+  icon.classList.replace("fa-moon", "fa-sun");
 }
 
 // Mobile Menu Toggle
 menuToggle.addEventListener("click", () => {
-  navList.classList.toggle("active")
-})
+  navList.classList.toggle("active");
+});
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", () => {
-    navList.classList.remove("active")
-  })
-})
+    navList.classList.remove("active");
+  });
+});
 
 // contacto Form Submission
 if (contactoForm) {
   contactoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(contactoForm);
+    const formValues = Object.fromEntries(formData.entries());
 
-    // Get form data
-    const formData = new FormData(contactoForm)
-    const formValues = Object.fromEntries(formData.entries())
-
-    // Simple validation
-    let isValid = true
-    for (const [key, value] of Object.entries(formValues)) {
+    let isValid = true;
+    Object.entries(formValues).forEach(([key, value]) => {
+      const input = document.getElementById(key);
       if (!value.trim()) {
-        isValid = false
-        const input = document.getElementById(key)
-        input.style.borderColor = "red"
+        isValid = false;
+        input.style.borderColor = "red";
       }
-    }
+    });
 
     if (isValid) {
-      // In a real application, you would send this data to a server
-      console.log("Form submitted:", formValues)
-
-      // Show success message
-      alert("¡Mensaje enviado con éxito! Te responderé lo antes posible.")
-
-      // Reset form
-      contactoForm.reset()
+      alert("¡Mensaje enviado con éxito! Te responderé lo antes posible.");
+      contactoForm.reset();
     } else {
-      alert("Por favor, completa todos los campos del formulario.")
+      alert("Por favor, completa todos los campos del formulario.");
     }
-  })
+  });
 
-  // Reset validation styling on input
   contactoForm.querySelectorAll("input, textarea").forEach((input) => {
     input.addEventListener("input", () => {
-      input.style.borderColor = ""
-    })
-  })
+      input.style.borderColor = "";
+    });
+  });
 }
 
-// Smooth scrolling for anchor links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-
-    const targetId = this.getAttribute("href")
-    if (targetId === "#") return
-
-    const targetElement = document.querySelector(targetId)
+    e.preventDefault();
+    const targetElement = document.querySelector(this.getAttribute("href"));
     if (targetElement) {
-      const headerHeight = document.querySelector(".header").offsetHeight
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight
-
       window.scrollTo({
-        top: targetPosition,
+        top: targetElement.offsetTop - document.querySelector(".header").offsetHeight,
         behavior: "smooth",
-      })
+      });
     }
-  })
-})
-
-// Add active class to nav links on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        
-        if (window.pageYOffset >= sectionTop - headerHeight - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href').substring(1); // Remove the # from href
-        if (href === current) {
-            link.classList.add('active');
-        }
-    });
+  });
 });
 
-// Animate elements on scroll
-const animateOnScroll = () => {
-  const elements = document.querySelectorAll(".skill-item, .project-card, .timeline-item")
+// Animaciones con scroll
+const scrollReveal = () => {
+  sections.forEach((section) => {
+    section.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+        el.style.transition = "opacity 0.3s ease-out, transform 0.3s ease-out";
+      }
+    });
+  });
+};
 
-  elements.forEach((element) => {
-    const elementPosition = element.getBoundingClientRect().top
-    const windowHeight = window.innerHeight
+sections.forEach(section => {
+  section.querySelectorAll("* > *").forEach(el => {
+    el.classList.add("reveal-on-scroll");
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+  });
+});
 
-    if (elementPosition < windowHeight - 100) {
-      element.classList.add("animate")
+// Efecto máquina de escribir en el nombre
+const typeWriterEffect = () => {
+  if (!nameElement) return;
+  const text = nameElement.textContent;
+  nameElement.textContent = "";
+  let index = 0;
+
+  const writeText = () => {
+    if (index < text.length) {
+      nameElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(writeText, 50);
     }
-  })
-}
+  };
 
-// Add animation class
-document.addEventListener('DOMContentLoaded', () => {
-    // Marcar el enlace activo basado en la URL actual
-    const currentLocation = window.location.hash;
-    if (currentLocation) {
-        const activeLink = document.querySelector(`.nav-link[href="${currentLocation}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
-    } else {
-        // Si no hay hash, marcar el primer enlace como activo
-        const firstLink = document.querySelector('.nav-link');
-        if (firstLink) {
-            firstLink.classList.add('active');
-        }
-    }
-    
-  // Add animation class to elements
-  const skillItems = document.querySelectorAll(".skill-item")
-  const projectCards = document.querySelectorAll(".project-card")
-  const timelineItems = document.querySelectorAll(".timeline-item")
+  writeText();
+};
 
-  // Add animation styles
-  const style = document.createElement("style")
-  style.textContent = `
-    .skill-item, .project-card, .timeline-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    
-    .skill-item.animate, .project-card.animate, .timeline-item.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 15px 25px var(--shadow);
-    }
-  `
-  document.head.appendChild(style)
-
-  // Initial check for elements in viewport
-  animateOnScroll()
-
-  // Listen for scroll events
-  window.addEventListener("scroll", animateOnScroll)
-})
+// Event listeners
+window.addEventListener("scroll", scrollReveal);
+document.addEventListener("DOMContentLoaded", () => {
+  scrollReveal();
+  typeWriterEffect();
+});
