@@ -358,7 +358,7 @@ img {
 .habilidad-item {
   background-color: var(--background-alt);
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 0.7rem;
   text-align: center;
   transition: var(--transition);
   box-shadow: 0 4px 6px var(--shadow);

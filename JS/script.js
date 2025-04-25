@@ -40,36 +40,38 @@ document.querySelectorAll(".nav-link").forEach((link) => {
   });
 });
 
-// contacto Form Submission
-if (contactoForm) {
-  contactoForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(contactoForm);
-    const formValues = Object.fromEntries(formData.entries());
+// =============================================
+// MANEJO DEL FORMULARIO (AÑADIR AL FINAL DE TU JS)
+// =============================================
+document.getElementById("contacto-form")?.addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  // 1. Validación rápida (puedes personalizar esto)
+  const name = this.name.value.trim();
+  const email = this.email.value.trim();
+  const subject = this.subject.value.trim();
+  const message = this.message.value.trim();
 
-    let isValid = true;
-    Object.entries(formValues).forEach(([key, value]) => {
-      const input = document.getElementById(key);
-      if (!value.trim()) {
-        isValid = false;
-        input.style.borderColor = "red";
-      }
-    });
+  if (!name || !subject || !message) {
+    alert("⚠️ Completa todos los campos.");
+    return;
+  }
 
-    if (isValid) {
-      alert("¡Mensaje enviado con éxito! Te responderé lo antes posible.");
-      contactoForm.reset();
-    } else {
-      alert("Por favor, completa todos los campos del formulario.");
-    }
-  });
+  if (!email.includes("@") || !email.includes(".")) {
+    alert("📧 Email no válido. Revísalo, por favor.");
+    return;
+  }
 
-  contactoForm.querySelectorAll("input, textarea").forEach((input) => {
-    input.addEventListener("input", () => {
-      input.style.borderColor = "";
-    });
-  });
-}
+  // 2. Enviar el formulario (a FormSubmit)
+  this.submit(); // Esto conserva tu configuración actual (action, method, hidden inputs)
+
+  // 3. (Opcional) Feedback visual al usuario
+  const btn = this.querySelector("button[type='submit']");
+  if (btn) {
+    btn.textContent = "Enviado ✓";
+    btn.disabled = true;
+  }
+});
 
 // Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
