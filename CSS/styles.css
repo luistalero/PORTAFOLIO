@@ -664,7 +664,6 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
 
   .nav-link {
     display: block;
-    padding: 1rem;
   }
 
   .cambio-menu {
@@ -720,4 +719,10 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
   }
+}
+.projecto-card:hover img {
+  transform: scale(1.03);
+}
+.habilidad-item:hover .habilidad-icon {
+  transform: scale(1.1);
 }
