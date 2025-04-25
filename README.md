@@ -14,6 +14,7 @@ portafolio/
 ├── 📁 img/       # Imágenes del proyecto
 ├── 📁 JS/        # Funcionalidad en JavaScript
 ├── 📄 index.html # Página principal
+├── 📄 indexing.html # Página principal en inglés
 └── 📁 .git/      # Configuración de Git
 ```
 
@@ -26,7 +27,7 @@ portafolio/
 ## 🛠️ Instalación y Uso
 1. **Clona el repositorio**
    ```sh
-   git clone <URL_DEL_REPOSITORIO>
+   git clone <https://github.com/luistalero/PORTAFOLIO>
    ```
 2. **Abre el archivo `index.html`** en tu navegador favorito.
 
