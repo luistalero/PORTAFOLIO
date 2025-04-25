@@ -9,6 +9,8 @@
   --background-alt: #1e293b; 
   --border: #334155;
   --shadow: rgba(0, 0, 0, 0.5);
+  --radius: 0.5rem;
+  --transition: all 0.3s ease;
 }  
 
 .oscuro {
@@ -607,6 +609,21 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
   font-size: 0.875rem;
 }
 
+.form-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+.form-message.success {
+  background-color: rgba(74, 222, 128, 0.2);
+  color: #10b981;
+}
+.form-message.error {
+  background-color: rgba(248, 113, 113, 0.2);
+  color: #ef4444;
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
   .contenido-perfil {
@@ -647,7 +664,7 @@ box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.25);
 
   .nav-link {
     display: block;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
   }
 
   .cambio-menu {

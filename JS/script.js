@@ -40,20 +40,19 @@ document.querySelectorAll(".nav-link").forEach((link) => {
   });
 });
 
-// =============================================
-// MANEJO DEL FORMULARIO (AÑADIR AL FINAL DE TU JS)
-// =============================================
 document.getElementById("contacto-form")?.addEventListener("submit", function(e) {
   e.preventDefault();
   
-  // 1. Validación rápida (puedes personalizar esto)
+  const formMessage = document.getElementById("form-message");
   const name = this.name.value.trim();
   const email = this.email.value.trim();
   const subject = this.subject.value.trim();
   const message = this.message.value.trim();
 
   if (!name || !subject || !message) {
-    alert("⚠️ Completa todos los campos.");
+    formMessage.textContent = "⚠️ Completa todos los campos.";
+    formMessage.className = "form-message error";
+    formMessage.style.display = "block";
     return;
   }
 
@@ -62,13 +61,14 @@ document.getElementById("contacto-form")?.addEventListener("submit", function(e)
     return;
   }
 
-  // 2. Enviar el formulario (a FormSubmit)
-  this.submit(); // Esto conserva tu configuración actual (action, method, hidden inputs)
+  this.submit();
+  formMessage.textContent = "✔️ Mensaje enviado. ¡Gracias!";
+  formMessage.className = "form-message success";
+  formMessage.style.display = "block";
 
-  // 3. (Opcional) Feedback visual al usuario
   const btn = this.querySelector("button[type='submit']");
   if (btn) {
-    btn.textContent = "Enviado ✓";
+    btn.textContent = "Enviando...";
     btn.disabled = true;
   }
 });
